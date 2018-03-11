@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  certbot:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: certbot
+    env_file: .env
+    stdin_open: true
+    tty: true
+    volumes:
+      - $PWD/certs:/etc/letsencrypt
